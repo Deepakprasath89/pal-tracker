@@ -15,6 +15,13 @@ jobs:
         java-version: 11
     - name: Make gradlew executable
       run: chmod +x ./gradlew
+    - name: Start mysql
+      run: |
+        sudo /etc/init.d/mysql start
+    - name: Create test database
+      run: |
+        mysql -uroot -proot < databases/tracker/create_databases.sql
+        ./gradlew testMigrate
     - name: Build with Gradle
       run: ./gradlew build
     - name: Publish artifact
