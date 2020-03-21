@@ -4,9 +4,6 @@ applications:
     path: build/libs/pal-tracker.jar
     routes:
     - route: pal-tracker-deepak-prasath.cfapps.io
-  - run:
-      name: chmod permissions
-      command: chmod +x ./gradlew
     env:
       WELCOME_MESSAGE: Hello from the review environment
       JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ } }'
